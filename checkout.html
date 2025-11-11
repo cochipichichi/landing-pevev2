@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comprar PEVE — Checkout</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0b1220">
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+        <div>PEVE <span class="badge">Checkout</span><div class="small" style="opacity:.7">Compra segura (vía correo o WhatsApp)</div></div>
+      </div>
+      <nav class="controls" aria-label="🛠️ Controles">
+        <a class="btn" href="./index.html">🏠</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="pill">🧾 <span>Orden de compra</span></div>
+      <h1>Finalizar compra</h1>
+      <p class="small" id="summary">Completa tus datos. Te enviaremos el detalle y activación del plan.</p>
+    </section>
+    <section class="card">
+      <form id="orderForm">
+        <div class="grid">
+          <div>
+            <label>Plan seleccionado</label><br>
+            <input id="plan" required placeholder="Plan Familiar / Pack 5 / Piloto 30d / Colegio" />
+          </div>
+          <div>
+            <label>Nombre del apoderado/tutor</label><br>
+            <input id="name" required placeholder="Nombre y Apellido" />
+          </div>
+          <div>
+            <label>Correo</label><br>
+            <input id="email" required type="email" placeholder="correo@dominio.com" />
+          </div>
+          <div>
+            <label>WhatsApp</label><br>
+            <input id="whatsapp" placeholder="+56 9..." />
+          </div>
+          <div>
+            <label>Notas</label><br>
+            <input id="notes" placeholder="Curso/Estudiante, colegio, dudas..." />
+          </div>
+        </div>
+        <div class="icon-row" style="margin-top:12px">
+          <button type="button" class="btn solid buy" id="btnMail">✉️ Enviar por correo</button>
+          <button type="button" class="btn buy" id="btnWA">💬 Enviar por WhatsApp</button>
+        </div>
+      </form>
+    </section>
+    <div class="footer-bar">
+      <div>📚© Neotech EduLab — Educación Inmersiva</div>
+      <small>🛠️Prohibida su copia y/o reproducción</small>
+    </div>
+  </main>
+  <script>
+    const $ = (s)=>document.querySelector(s);
+    function craftMessage(){
+      const plan = encodeURIComponent($('#plan').value);
+      const name = encodeURIComponent($('#name').value);
+      const email = encodeURIComponent($('#email').value);
+      const wa = encodeURIComponent($('#whatsapp').value);
+      const notes = encodeURIComponent($('#notes').value);
+      const body = `Solicitud de compra PEVE%0APlan: ${plan}%0ANombre: ${name}%0ACorreo: ${email}%0AWhatsApp: ${wa}%0ANotas: ${notes}`;
+      return body;
+    }
+    $('#btnMail').addEventListener('click', ()=>{
+      if(!$('#orderForm').reportValidity()) return;
+      const subject = encodeURIComponent('Compra PEVE - ' + $('#plan').value);
+      const body = craftMessage();
+      location.href = `mailto:contacto@neotechedulab.cl?subject=${subject}&body=${body}`;
+    });
+    $('#btnWA').addEventListener('click', ()=>{
+      if(!$('#orderForm').reportValidity()) return;
+      const text = craftMessage();
+      const number = '56900000000'; // placeholder, reemplazar por el real
+      location.href = `https://wa.me/${number}?text=${text}`;
+    });
+  </script>
+
+<script>
+  const sel = localStorage.getItem('sel_plan');
+  if(sel && document.querySelector('#plan')) document.querySelector('#plan').value = sel;
+</script>
+
+</body>
+</html>

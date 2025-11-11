@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PEVE — Plataforma Exámenes de Validación de Estudios</title>
+  <meta name="description" content="Plataforma PEVE: recursos, seguimiento y paneles para preparar y rendir Exámenes de Validación de Estudios en Chile.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0b1220">
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+        <span style="font-size:22px">🎓</span>
+        <div><strong>📚PEVE</strong> <span class="badge">Beta</span><div class="small" style="opacity:.7">Plataforma Exámenes de Validación de Estudios</div></div>
+      </div>
+      <nav class="controls" aria-label="🛠️ Controles">
+        <button class="btn" id="btn-home" onclick="location.href='./index.html'">🏠</button>
+        <button class="btn" id="btn-tts" title="Narrador">🗣️</button>
+        <button class="btn" id="btn-theme" title="Tema claro/oscuro">🌓</button>
+        <button class="btn" id="btn-plus" title="Aumentar tamaño de letra">A+</button>
+        <button class="btn" id="btn-minus" title="Disminuir tamaño de letra">A−</button>
+        <button class="btn" id="btn-lang" title="Idioma (ES/EN)" onclick="alert('Versión EN en construcción')">🌐</button>
+        <button class="btn" id="btn-access" title="PIE/Accesibilidad" onclick="alert('Módulos PIE y accesibilidad activos')">🧠</button>
+        <button class="btn" id="btn-search" title="Buscar" onclick="document.getElementById('search').focus()">🔍</button>
+      </nav>
+    </div>
+  </header>
+
+<main class="container">
+    <section class="hero">
+      <div class="pill">📢 <span>Landing oficial</span></div><h1><strong>📚PEVE</strong></h1>
+      <h1>Plataforma para Exámenes de Validación de Estudios</h1>
+      <p id="hero-summary"><strong>
+        <strong>PEVE</strong> es una plataforma educativa pensada para preparar y rendir Exámenes de Validación de Estudios (exámenes libres) con enfoque inclusivo.
+        Integra paneles para estudiantes y para padres/tutores, seguimiento del progreso por asignatura, y recursos organizados conforme al currículum nacional.
+      </strong></p>
+
+
+      <div class="searchbar">
+        <input id="search" type="search" placeholder="🔍 Buscar asignaturas, recursos, guías...">
+        <a class="btn solid" href="#recursos">🚀 Ir a PANEL DEMOSTRATIVO</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">🧩 ¿En qué consiste <strong>📚PEVE</strong>?</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="pill badge-info">👨‍👩‍👧 Seguimiento familiar</div>
+          <h3>Panel para padres y tutores</h3>
+          <p>Permite monitorear el avance por asignatura y eje, ver evidencias (KPSI, quizzes y tickets), descargar reportes CSV y recibir recordatorios.</p>
+          <div class="kpis">
+            <span class="pill">✅ KPSI inicio/fin</span>
+            <span class="pill">🧪 Quizzes</span>
+            <span class="pill">🎟️ Tickets</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pill badge-info">🎒 Trayectoria del alumno</div>
+          <h3>Panel del estudiante</h3>
+          <p>Acceso a todas las asignaturas con contenidos alineados a OA, materiales accesibles (alto contraste, narrador, tamaño de letra) y registro de progreso.</p>
+          <div class="kpis">
+            <span class="pill">📚 Asignaturas</span>
+            <span class="pill">📈 Progreso</span>
+            <span class="pill">🧭 Ruta de estudio</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pill badge-info">🧠 Accesibilidad PIE</div>
+          <h3>Diseño inclusivo</h3>
+          <p>Controles fijos de accesibilidad, narrador integrado, contrastes, tamaños de fuente, pictogramas y guías paso a paso, pensados para PIE y diversidad.</p>
+          <div class="kpis">
+            <span class="pill">🗣️ Narrador</span>
+            <span class="pill">🌓 Alto contraste</span>
+            <span class="pill">A+ A− Tamaño</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pill badge-info">🧰 Listo para publicar</div>
+          <h3>Estructura base con PWA</h3>
+          <p>Incluye manifest, service worker, assets y estilo moderno con micro-interacciones para desplegar en GitHub Pages o hosting propio.</p>
+          <div class="kpis">
+            <span class="pill">📦 ZIP listo</span>
+            <span class="pill">⚡ Offline básico</span>
+            <span class="pill">🛡️ Estático seguro</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="planes">
+      <h2 class="section-title">💳 Planes y compra</h2>
+      <div class="pricing">
+        <article class="card price-card">
+          <div class="pill badge-info badge-top">👨‍👩‍👧 Familiar</div>
+          <h3>Plan Familiar</h3>
+          <p class="price">$29.990 / mes</p>
+          <ul class="features">
+            <li>1 estudiante • Todas las asignaturas</li>
+            <li>Panel apoderado + seguimiento</li>
+            <li>Recursos alineados a OA</li>
+            <li>Soporte por correo</li>
+          </ul>
+
+	<a class="btn solid buy" href="./sites/checkout/index.html" onclick="localStorage.setItem('sel_plan','Plan Familiar')">🛒 Comprar</a>
+        </article>
+
+        <article class="card price-card">
+          <div class="pill badge-info badge-top">📦 Pack</div>
+          <h3>Pack 5 Asignaturas</h3>
+          <p class="price">$49.990 / mes</p>
+          <ul class="features">
+            <li>1 estudiante • 5 asignaturas</li>
+            <li>Panel apoderado + reportes CSV</li>
+            <li>Quizzes + Tickets + KPSI</li>
+            <li>Asistencia por WhatsApp</li>
+          </ul>
+          <a class="btn solid buy" href="./sites/checkout/index.html" onclick="localStorage.setItem('sel_plan','Pack 5 Asignaturas')">🛒 Comprar</a>
+        </article>
+
+        <article class="card price-card">
+          <div class="pill badge-info badge-top">🧪 Piloto</div>
+          <h3>Piloto 30 días</h3>
+          <p class="price">$0 / 30 días</p>
+          <ul class="features">
+            <li>Acceso limitado de prueba</li>
+            <li>Panel estudiante + apoderado</li>
+            <li>1 curso demo y reportes</li>
+            <li>Sin costo de activación</li>
+          </ul>
+          <a class="btn buy" href="./sites/checkout/index.html" onclick="localStorage.setItem('sel_plan','Piloto 30d')">🧪 Probar</a>
+        </article>
+
+       <!--  <article class="card price-card">
+          <div class="pill badge-info badge-top">🏫 Colegios</div>
+          <h3>Plan Colegios</h3>
+          <p class="price">Desde $199.000 / mes</p>
+          <ul class="features">
+            <li>Hasta 200 estudiantes</li>
+            <li>Panel docente + dashboard</li>
+            <li>Integración Google Sheets</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a class="btn solid buy" href="./sites/checkout/index.html" onclick="localStorage.setItem('sel_plan','Plan Colegios')">📩 Cotizar</a>
+        </article> -->
+      
+        <article class="card price-card">
+          <div class="pill badge-top">👨‍👧‍👦 Hermanos</div>
+          <h3>Plan Hermanos</h3>
+          <p class="price">$44.990 / mes</p>
+          <ul class="features">
+            <li>2 estudiantes • Todas las asignaturas</li>
+            <li>Panel apoderado unificado</li>
+            <li>Quizzes + Tickets + KPSI</li>
+            <li>Descuento por grupo familiar</li>
+          </ul>
+          <a class="btn solid buy" href="./sites/checkout/index.html" onclick="localStorage.setItem('sel_plan','Plan Hermanos')">🛒 Comprar</a>
+        </article>
+    
+      </div>
+      <div class="icon-row" style="margin-top:8px">
+        <span class="pill">🔐 Pago seguro</span>
+        <span class="pill">📧 Comprobante por correo</span>
+        <span class="pill">🧠 Enfoque inclusivo</span>
+        <span class="pill">⚡ Activación rápida</span>
+      </div>
+    </section>
+    
+    <section id="recursos">
+      <h2 class="section-title">📚 PANEL RECURSOS DEMOSTRATIVOS</h2>
+      <div class="grid">
+        
+        <article class="card">
+          <div class="pill"><span>🖥️</span><span class="tag">Panel Estudiante</span></div>
+          <h3>👩‍🎓Estudiante</h3>
+          <p class="small">Abrir recurso adjunto: <strong>email_template.html</strong></p>
+          <div class="kpis">
+            <span class="pill badge-info">🧭 Navegar</span>
+            <span class="pill kpi">✅ Listo</span>
+          </div>
+          <p style="margin-top:10px"><a class="btn" href="./sites/students/index.html">🔗 Abrir</a></p>
+        </article>
+        
+        <article class="card">
+          <div class="pill"><span>📋</span><span class="tag">Panel Apoderado</span></div>
+          <h3>👨‍👩‍👧Apoderado</h3>
+          <p class="small">Abrir recurso adjunto<strong>📋Panel Apoderado</strong></p>
+          <div class="kpis">
+            <span class="pill badge-info">🧭 Navegar</span>
+            <span class="pill kpi">✅ Listo</span>
+          </div>
+          <p style="margin-top:10px"><a class="btn" href="./sites/parents/index.html">🔗 Abrir</a></p>
+        </article>
+        
+        <article class="card">
+          <div class="pill"><span>📄</span><span class="tag">Recurso PEVE</span></div>
+          <h3>Index</h3>
+          <p class="small">Abrir recurso adjunto: <strong>index.html</strong></p>
+          <div class="kpis">
+            <span class="pill badge-info">🧭 Navegar</span>
+            <span class="pill kpi">✅ Listo</span>
+          </div>
+          <p style="margin-top:10px"><a class="btn" href="./pages/index.html">🔗 Abrir</a></p>
+        </article>
+        
+        <article class="card">
+          <div class="pill"><span>📄</span><span class="tag">Recurso PEVE</span></div>
+          <h3>Index</h3>
+          <p class="small">Abrir recurso adjunto: <strong>index.html</strong></p>
+          <div class="kpis">
+            <span class="pill badge-info">🧭 Navegar</span>
+            <span class="pill kpi">✅ Listo</span>
+          </div>
+          <p style="margin-top:10px"><a class="btn" href="./pages/index.html">🔗 Abrir</a></p>
+        </article>
+        
+       <!--  <article class="card">
+          <div class="pill"><span>📄</span><span class="tag">Recurso PEVE</span></div>
+          <h3>Index</h3>
+          <p class="small">Abrir recurso adjunto: <strong>index.html</strong></p>
+          <div class="kpis">
+            <span class="pill badge-info">🧭 Navegar</span>
+            <span class="pill kpi">✅ Listo</span>
+          </div>
+          <p style="margin-top:10px"><a class="btn" href="./pages/index.html">🔗 Abrir</a></p>
+        </article> -->
+        
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">📌 Cómo comprar la plataforma<strong>📚PEVE</strong></h2>
+      <div class="grid">
+        <article class="card">
+          <h3>1) Elije el PLAN</h3>
+          <p>Elije el plan que mas te acomode. La plataforma contiene muchos recursos y funciona sin interrumpciones.</p>
+        </article>
+        <article class="card">
+          <h3>2) Agregar el pago que mas te acomodes</h3>
+          <p>Realiza el pago con cualquier medio de compra <code>tarjetas</code>. Se realiza automáticamente en este sitio la confirmacion de la compra.</p>
+        </article>
+        <article class="card">
+          <h3>3) Personalizar estilo</h3>
+          <p>Edita <code>styles.css</code> y <code>script.js</code> para cambiar colores, animaciones y controles.</p>
+        </article>
+        <article class="card">
+          <h3>4) Exportar evidencias</h3>
+          <p>Integra tus formularios KPSI/Quiz/Tickets con Google Sheets o CSV según tus flujos.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer small">
+      © 2025 PEVE — Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.
+    </div>
+  
+    
+    <section id="sitios">
+      <h2 class="section-title">🗂️ PANEL DEMOSTRATIVO</h2>
+      <div class="grid">
+        
+	 <article class="card">
+          <div class="pill">🗂️ Panel Estudiante</div>
+          <h3>👩‍🎓Estudiante</h3>
+          <p class="small">Carpeta: <code>/sites/students</code></p>
+          <p><a class="btn" href="./sites/students/index.html">🔗 Abrir sitio</a></p>
+        </article> 
+
+       <!-- <article class="card">
+          <div class="pill">🗂️ Panel Apoderado</div>
+          <h3>👨‍👧‍👦Apoderado</h3>
+          <p class="small">Carpeta: <code>/sites/parents</code></p>
+          <p><a class="btn" href="./sites/parents/index.html">🔗 Abrir sitio</a></p>
+        </article> -->
+
+      <!-- <article class="card">
+          <div class="pill">🗂️ Sitio VIP</div>
+          <h3>💳 Planes Premium </h3>
+          <p class="small">Carpeta: <code>/sites/plans</code></p>
+          <p><a class="btn" href="./sites/plans/index.html">🔗 Abrir sitio</a></p>
+        </article> -->
+    
+
+        <!--  <article class="card">
+          <div class="pill">🗂️ Sitio integrado</div>
+          <h3>Apps Script Templates</h3>
+          <p class="small">Carpeta: <code>/sites/apps_script_templates</code></p>
+          <p><a class="btn" href="./sites/apps_script_templates/email_template.html">🔗 Abrir sitio</a></p>
+        </article>  -->
+    
+        <!-- <article class="card">
+          <div class="pill">🗂️ Sitio integrado</div>
+          <h3>Checkout</h3>
+          <p class="small">Carpeta: <code>/sites/checkout</code></p>
+          <p><a class="btn" href="./sites/checkout/index.html">🔗 Abrir sitio</a></p>
+        </article>  -->
+    
+             
+      </div>
+    </section>
+    
+     <div class="footer small">
+      © 2025 <strong>📚PEVE</strong>-Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.
+    </div>
+  
+    <div class="footer-bar">
+    <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+      <div><strong>© <strong>Neotech EduLab</strong>—Educación Inmersiva</div>
+      <small>🛠️Prohibida su copia y/o reproducción</small>
+    </div>
+
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
